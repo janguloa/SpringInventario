@@ -1,28 +1,46 @@
 package com.istmosystem.inventario.modelo;
 
-import java.util.Date;
-
+import java.time.LocalDate;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="productos")
 public class Productos {
 	
 	@Id
+	@Column(name="codproducto")
 	private String codproducto;
+	
+	@NotNull
+	@Column(name="descripcion")
 	private String descripcion;
+	
+	@NotNull
+	@Column(name="estado")
 	private String estado;
-	private Date fecha_modificacion;
-	private Date fecha_registro;
+	
+	@Column(name="fecha_modificacion")
+	private LocalDate fecha_modificacion;
+	
+	@Column(name="fecha_registro")
+	private LocalDate fecha_registro;
+	
+	@Column(name="usuario_registro")
 	private String usuario_registro;
+	
+	@Column(name="usuario_modifico")
 	private String usuario_modifico;
 	
 	public Productos() {
 		
 	}
 	
-	public Productos(String codproducto, String descripcion, String estado, Date fecha_modificacion,
-			Date fecha_registro, String usuario_registro, String usuario_modifico) {
+	public Productos(String codproducto, String descripcion, String estado, LocalDate fecha_modificacion,
+			LocalDate fecha_registro, String usuario_registro, String usuario_modifico) {
 		this.codproducto = codproducto;
 		this.descripcion = descripcion;
 		this.estado = estado;
@@ -50,16 +68,16 @@ public class Productos {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public Date getFecha_modificacion() {
+	public LocalDate getFecha_modificacion() {
 		return fecha_modificacion;
 	}
-	public void setFecha_modificacion(Date fecha_modificacion) {
+	public void setFecha_modificacion(LocalDate fecha_modificacion) {
 		this.fecha_modificacion = fecha_modificacion;
 	}
-	public Date getFecha_registro() {
+	public LocalDate getFecha_registro() {
 		return fecha_registro;
 	}
-	public void setFecha_registro(Date fecha_registro) {
+	public void setFecha_registro(LocalDate fecha_registro) {
 		this.fecha_registro = fecha_registro;
 	}
 	public String getUsuario_registro() {
