@@ -1,7 +1,8 @@
-package com.istmosystem.inventario.servicio;
+package servicio;
 
 import java.util.List;
-import com.istmosystem.inventario.modelo.Productos;
+
+import modelo.Productos;
 
 public interface ProductosServicio {
 	

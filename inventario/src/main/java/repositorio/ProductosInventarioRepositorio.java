@@ -1,9 +1,10 @@
-package com.istmosystem.inventario.repositorio;
+package repositorio;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.istmosystem.inventario.modelo.ProductosInventario;
+
+import modelo.ProductosInventario;
 
 @Repository
 public interface ProductosInventarioRepositorio extends CrudRepository<ProductosInventario, Long> {

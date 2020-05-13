@@ -1,9 +1,7 @@
-package com.istmosystem.inventario.modelo;
+package modelo;
 
 import static javax.persistence.GenerationType.SEQUENCE;
-
 import java.time.LocalDateTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;

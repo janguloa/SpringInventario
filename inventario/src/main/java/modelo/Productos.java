@@ -1,4 +1,4 @@
-package com.istmosystem.inventario.modelo;
+package modelo;
 
 import java.time.LocalDate;
 import javax.persistence.Column;

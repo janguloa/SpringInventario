@@ -1,11 +1,12 @@
-package com.istmosystem.inventario.servicio;
+package servicio;
 
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.istmosystem.inventario.modelo.ProductosInventario;
-import com.istmosystem.inventario.repositorio.ProductosInventarioRepositorio;
+
+import modelo.ProductosInventario;
+import repositorio.ProductosInventarioRepositorio;
 
 @Service("productoInventario")
 @Transactional
@@ -32,8 +33,9 @@ public class ProductosInventarioServicioImpl implements ProductosInventarioServi
 
 	@Override
 	public ProductosInventario CreateRegistry(ProductosInventario productoInventario) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return productosInventarioRepositorio.save(productoInventario);
+		
 	}
 
 	@Override
@@ -47,5 +49,4 @@ public class ProductosInventarioServicioImpl implements ProductosInventarioServi
 		// TODO Auto-generated method stub
 
 	}
-
 }

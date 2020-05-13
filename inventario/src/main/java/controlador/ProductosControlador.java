@@ -1,4 +1,4 @@
-package com.istmosystem.inventario.controlador;
+package controlador;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.istmosystem.inventario.modelo.Productos;
-import com.istmosystem.inventario.servicio.ProductosServicio;
+import modelo.Productos;
+import servicio.ProductosServicio;
 
 @RestController
 @RequestMapping("/")
