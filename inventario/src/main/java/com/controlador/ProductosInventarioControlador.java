@@ -1,4 +1,4 @@
-package controlador;
+package com.controlador;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import modelo.ProductosInventario;
-import servicio.ProductosInventarioServicio;
+import com.modelo.ProductosInventario;
+import com.servicio.ProductosInventarioServicio;
 
 @RestController
 @RequestMapping("")

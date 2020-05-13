@@ -1,10 +1,10 @@
-package repositorio;
+package com.repositorio;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import modelo.Productos;
+import com.modelo.Productos;
 
 @Repository
 public interface ProductosRepositorio extends CrudRepository<Productos, String> {

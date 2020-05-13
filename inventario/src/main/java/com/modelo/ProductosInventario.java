@@ -1,4 +1,4 @@
-package modelo;
+package com.modelo;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 import java.time.LocalDateTime;

@@ -1,12 +1,13 @@
-package servicio;
+package com.servicio;
 
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import modelo.ProductosInventario;
-import repositorio.ProductosInventarioRepositorio;
+import com.modelo.Productos;
+import com.modelo.ProductosInventario;
+import com.repositorio.ProductosInventarioRepositorio;
 
 @Service("productoInventario")
 @Transactional
@@ -26,7 +27,7 @@ public class ProductosInventarioServicioImpl implements ProductosInventarioServi
 	@Override
 	public List<ProductosInventario> findByCodigo() {
 		
-		List <ProductosInventario> lista = productosInventarioRepositorio.findAllByCodproducto("CONSOL1");
+		List <ProductosInventario> lista = productosInventarioRepositorio.findAllByCodproducto(new Productos("CONSOL1"));
 		
 		return lista;
 	}

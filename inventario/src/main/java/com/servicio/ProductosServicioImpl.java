@@ -1,4 +1,4 @@
-package servicio;
+package com.servicio;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import modelo.Productos;
-import modelo.ResourceNotFoundException;
-import repositorio.ProductosRepositorio;
+import com.modelo.Productos;
+import com.modelo.ResourceNotFoundException;
+import com.repositorio.ProductosRepositorio;
 
 @Service("productosServicio")
 @Transactional

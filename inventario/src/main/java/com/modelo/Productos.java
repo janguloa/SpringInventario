@@ -1,4 +1,4 @@
-package modelo;
+package com.modelo;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -50,6 +50,10 @@ public class Productos {
 		this.usuario_modifico = usuario_modifico;
 	}
 	
+	public Productos(String codproducto) {
+		this.codproducto = codproducto;
+	}
+
 	public String getCodproducto() {
 		return codproducto;
 	}

@@ -1,4 +1,4 @@
-package controlador;
+package com.controlador;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import modelo.Productos;
-import servicio.ProductosServicio;
+import com.modelo.Productos;
+import com.servicio.ProductosServicio;
 
 @RestController
 @RequestMapping("/")
