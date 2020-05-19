@@ -50,8 +50,8 @@ public class ProductosInventario {
 	@Column(name="total_defectuosos")
 	private int total_defectuosos;
 	
-	@Column(name="porcentaje_oferta")
-	private Double porcentaje_oferta;
+	@Column(name="porcentaje_descuento")
+	private Double porcentaje_descuento;
 	
 	@Column(name="fecha_modificacion")
 	private LocalDateTime fecha_modificacion;
@@ -64,6 +64,9 @@ public class ProductosInventario {
 	
 	@Column(name="usuario_modifico")
 	private String usuario_modifico;
+	
+	@Column(name="cod_empresa")
+	private String cod_empresa;
 
 	public Long getId() {
 		return id;
@@ -121,14 +124,6 @@ public class ProductosInventario {
 		this.total_defectuosos = total_defectuosos;
 	}
 
-	public Double getPorcentaje_oferta() {
-		return porcentaje_oferta;
-	}
-
-	public void setPorcentaje_oferta(Double porcentaje_oferta) {
-		this.porcentaje_oferta = porcentaje_oferta;
-	}
-
 	public LocalDateTime getFecha_modificacion() {
 		return fecha_modificacion;
 	}
@@ -167,5 +162,21 @@ public class ProductosInventario {
 
 	public void setProducto(Productos codproducto) {
 		this.codproducto = codproducto;
+	}
+
+	public Double getPorcentaje_descuento() {
+		return porcentaje_descuento;
+	}
+
+	public void setPorcentaje_descuento(Double porcentaje_descuento) {
+		this.porcentaje_descuento = porcentaje_descuento;
+	}
+
+	public String getCod_empresa() {
+		return cod_empresa;
+	}
+
+	public void setCod_empresa(String cod_empresa) {
+		this.cod_empresa = cod_empresa;
 	}
 }
