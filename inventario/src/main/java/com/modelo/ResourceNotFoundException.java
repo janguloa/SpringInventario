@@ -1,4 +1,4 @@
-package com.istmosystem.inventario.modelo;
+package com.modelo;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
