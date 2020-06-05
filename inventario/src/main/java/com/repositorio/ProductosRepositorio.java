@@ -13,4 +13,5 @@ public interface ProductosRepositorio extends CrudRepository<Productos, String> 
 	
 	List<Productos> findAllByCodproducto(String codigo);
 	
+	
 }
