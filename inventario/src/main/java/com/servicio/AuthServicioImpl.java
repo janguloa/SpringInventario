@@ -3,19 +3,29 @@ package com.servicio;
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
+
 import javax.transaction.Transactional;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.exceptions.SpringRedditException;
+
+import com.dto.AuthenticationResponse;
+import com.dto.LoginRequest;
 import com.dto.RegisterRequest;
+import com.exceptions.SpringRedditException;
 import com.modelo.NotificationEmail;
 import com.modelo.Usuarios;
 import com.modelo.VerificationToken;
 import com.repositorio.UsuarioRepositorio;
 import com.repositorio.VerificationTokenRepositorio;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.seguridad.JWTProvider;
 import com.util.Constants;
+
+import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
@@ -27,6 +37,8 @@ public class AuthServicioImpl implements AuthServicio {
 	private final VerificationTokenRepositorio verificationTokenRepositorio;
 	private final MailContentBuilder mailContentBuilder;
 	private final MailService mailService;
+	private final AuthenticationManager authenticationManager;
+	private final JWTProvider jwtProvider;
 
 	@Override
 	public void signup(RegisterRequest registerRequest) {
@@ -41,6 +53,8 @@ public class AuthServicioImpl implements AuthServicio {
 		usuario.setEnabled(false);
 		
 		usuarioRepositorio.save(usuario);
+		
+	//	log.info("User Registered Successfully, Sending Authentication Email");
 		
 		String token = generateVerificationToken(usuario);
 		
@@ -60,6 +74,16 @@ public class AuthServicioImpl implements AuthServicio {
 		verificationTokenRepositorio.save(verificationToken);
 		
 		return token;
+		
+	}
+	
+	public AuthenticationResponse login (LoginRequest loginRequest) {
+		
+		Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+				loginRequest.getUsuario(), loginRequest.getContrasena()));
+		SecurityContextHolder.getContext().setAuthentication(authenticate);
+		String authenticationToken = jwtProvider.generateToken(authenticate);
+		return new AuthenticationResponse(authenticationToken, loginRequest.getUsuario());
 		
 	}
 	

@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.http.HttpStatus.OK;
+
+import com.dto.AuthenticationResponse;
+import com.dto.LoginRequest;
 import com.dto.RegisterRequest;
 import com.servicio.AuthServicio;
 import lombok.AllArgsConstructor;
@@ -26,10 +29,13 @@ public class AuthControlador {
 		return new ResponseEntity<>("Usuario registrado satisfactoriamente",OK);
 	}
 	
+	public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+		return authServicio.login(loginRequest);
+	}
+	
 	@GetMapping("accountVerification/{token}")
 	public ResponseEntity<String> verifyAccount(@PathVariable String token){
 		authServicio.verifyAccount(token);
-		
 		return new ResponseEntity<>("Cuenta activada satisfactoriamente", OK);
 	}
 	
